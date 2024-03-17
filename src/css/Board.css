@@ -1,0 +1,43 @@
+.board {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  width: 480px; /* Match the SVG dimensions */
+  height: 480px; /* Match the SVG dimensions */
+  background: url("../images/Chessboard.svg") no-repeat center center;
+  background-size: cover;
+  margin: 20px auto;
+}
+
+.square {
+  width: 100%;
+  aspect-ratio: 1; /* Ensures squares are always square */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent; /* Ensure square background is transparent */
+  border: none; /* Remove borders */
+}
+
+.square img {
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+}
+
+.selected {
+  border: 2px solid blue; /* Or any other style to highlight the selected piece */
+}
+
+.square.valid-move {
+  position: relative;
+}
+
+.square.valid-move::after {
+  content: "•"; /* Use any indicator you prefer */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: blue; /* Color of the indicator */
+  font-size: 20px; /* Adjust size as needed */
+}
